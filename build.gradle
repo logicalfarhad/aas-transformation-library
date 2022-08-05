@@ -21,7 +21,8 @@ version = '0.0.1-SNAPSHOT'
 application {
     group = group
     version = version
-    mainClass.set('com.sap.dsc.aas.lib.aml.ConsoleApplication')
+   // mainClass.set('com.sap.dsc.aas.lib.aml.ConsoleApplication')
+    mainClass.set('com.sap.dsc.aas.lib.ConsoleApplication')
 }
 
 mainClassName = application.mainClass.get()
