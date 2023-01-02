@@ -1,0 +1,190 @@
+{
+  "assetAdministrationShells" : [ {
+    "modelType" : {
+      "name" : "AssetAdministrationShell"
+    },
+    "assetInformation" : {
+      "assetKind" : "Type",
+      "globalAssetId" : {
+        "keys" : [ {
+          "idType" : "Custom",
+          "type" : "Asset",
+          "value" : "assetInformationGlobalAssetIdReference"
+        } ]
+      }
+    },
+    "submodels" : [ {
+      "keys" : [ {
+        "idType" : "Custom",
+        "type" : "Submodel",
+        "value" : "Test Manufacturer/null_submodel1"
+      } ]
+    }, {
+      "keys" : [ {
+        "idType" : "Custom",
+        "type" : "Submodel",
+        "value" : "Test Manufacturer/null_generalTechnicalData"
+      } ]
+    }, {
+      "keys" : [ {
+        "idType" : "Custom",
+        "type" : "Submodel",
+        "value" : "Documents"
+      } ]
+    }, {
+      "keys" : [ {
+        "idType" : "Custom",
+        "type" : "Submodel",
+        "value" : "Test Manufacturer/null_operations"
+      } ]
+    } ],
+    "identification" : {
+      "idType" : "Custom",
+      "id" : "shellId"
+    },
+    "idShort" : "TestSystemUnitClass"
+  } ],
+  "conceptDescriptions" : [ ],
+  "submodels" : [ {
+    "modelType" : {
+      "name" : "Submodel"
+    },
+    "semanticId" : {
+      "keys" : [ {
+        "idType" : "Irdi",
+        "type" : "ConceptDescription",
+        "value" : "http://sap.com"
+      } ]
+    },
+    "identification" : {
+      "idType" : "Custom",
+      "id" : "Test Manufacturer/null_submodel1"
+    },
+    "idShort" : "submodelShortId1",
+    "submodelElements" : [ {
+      "modelType" : {
+        "name" : "Property"
+      },
+      "kind" : "Instance",
+      "semanticId" : {
+        "keys" : [ {
+          "idType" : "Irdi",
+          "type" : "ConceptDescription",
+          "value" : "submodelElementSemanticId1"
+        } ]
+      },
+      "value" : "Test Manufacturer",
+      "valueId" : {
+        "keys" : [ {
+          "idType" : "Custom",
+          "type" : "Property",
+          "value" : "Test Manufacturer"
+        } ]
+      },
+      "valueType" : "STRING",
+      "category" : "PARAMETER",
+      "idShort" : "Manufacturer"
+    }, {
+      "modelType" : {
+        "name" : "Property"
+      },
+      "kind" : "Instance",
+      "semanticId" : {
+        "keys" : [ {
+          "idType" : "Irdi",
+          "type" : "ConceptDescription",
+          "value" : "submodelElementSemanticId2"
+        } ]
+      },
+      "value" : "Test Manufacturer",
+      "valueId" : {
+        "keys" : [ {
+          "idType" : "Custom",
+          "type" : "Property",
+          "value" : "Test Manufacturer"
+        } ]
+      },
+      "valueType" : "STRING",
+      "category" : "PARAMETER",
+      "idShort" : "Manufacturer"
+    }, {
+      "modelType" : {
+        "name" : "Capability"
+      },
+      "kind" : "Instance",
+      "category" : "PARAMETER",
+      "idShort" : "Browseable"
+    } ]
+  }, {
+    "modelType" : {
+      "name" : "Submodel"
+    },
+    "semanticId" : {
+      "keys" : [ {
+        "idType" : "Irdi",
+        "type" : "ConceptDescription",
+        "value" : "http://sap.com"
+      } ]
+    },
+    "identification" : {
+      "idType" : "Custom",
+      "id" : "Test Manufacturer/null_generalTechnicalData"
+    },
+    "idShort" : "GeneralTechnicalData",
+    "submodelElements" : [ {
+      "modelType" : {
+        "name" : "Range"
+      },
+      "kind" : "Instance",
+      "semanticId" : {
+        "keys" : [ {
+          "idType" : "Iri",
+          "type" : "Range",
+          "value" : "AmbientTemperature"
+        } ]
+      },
+      "valueType" : "integer",
+      "category" : "PARAMETER",
+      "idShort" : "AmbientTemperature"
+    }, {
+      "modelType" : {
+        "name" : "MultiLanguageProperty"
+      },
+      "kind" : "Instance",
+      "category" : "PARAMETER",
+      "idShort" : "Material"
+    } ]
+  }, {
+    "modelType" : {
+      "name" : "Submodel"
+    },
+    "semanticId" : {
+      "keys" : [ {
+        "idType" : "Irdi",
+        "type" : "ConceptDescription",
+        "value" : "http://sap.com/Documents"
+      } ]
+    },
+    "identification" : {
+      "idType" : "Custom",
+      "id" : "Documents"
+    },
+    "idShort" : "Documents"
+  }, {
+    "modelType" : {
+      "name" : "Submodel"
+    },
+    "semanticId" : {
+      "keys" : [ {
+        "idType" : "Irdi",
+        "type" : "ConceptDescription",
+        "value" : "http://sap.com/operations"
+      } ]
+    },
+    "identification" : {
+      "idType" : "Custom",
+      "id" : "Test Manufacturer/null_operations"
+    },
+    "idShort" : "Operations"
+  } ]
+}

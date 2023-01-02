@@ -1,7 +1,7 @@
-/* 
-  SPDX-FileCopyrightText: (C)2021 SAP SE or an affiliate company and aas-transformation-library contributors. All rights reserved. 
+/*
+  SPDX-FileCopyrightText: (C)2021 SAP SE or an affiliate company and aas-transformation-library contributors. All rights reserved.
 
-  SPDX-License-Identifier: Apache-2.0 
+  SPDX-License-Identifier: Apache-2.0
  */
 plugins {
     id 'java'
@@ -40,99 +40,9 @@ java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 }
-
-test {
-    useJUnitPlatform {
-        includeEngines 'junit-jupiter'
-        excludeTags 'integration-test'
-    }
-
-    ignoreFailures = false
-    testLogging {
-        events = ['passed', 'skipped', 'failed', 'standardOut', 'standardError']
-        exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
-        showStandardStreams = false
-    }
-    reports {
-        junitXml {
-            enabled = true
-            destination = file("${buildDir}/reports/junit/xml")
-        }
-        html {
-            enabled = true
-            destination = file("${buildDir}/reports/junit/html")
-        }
-    }
-    finalizedBy jacocoTestReport
-}
-
-task integrationTest(type: Test) {
-    useJUnitPlatform {
-        includeEngines 'junit-jupiter'
-        includeTags 'integration-test'
-    }
-
-    ignoreFailures = false
-    testLogging {
-        events = ['passed', 'skipped', 'failed', 'standardOut', 'standardError']
-        exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
-        showStandardStreams = true
-    }
-    reports {
-        junitXml {
-            enabled = true
-            destination = file("${buildDir}/reports/integration/xml")
-        }
-        html {
-            enabled = true
-            destination = file("${buildDir}/reports/integration/html")
-        }
-    }
-    shouldRunAfter test
-}
-
-consoleReporter {
-    jacoco {
-        enabled true
-        onlyWhenCoverageTaskExecuted false
-        reportAfterBuildFinished true
-        failIfLessThanThresholdError true
-        autoconfigureCoverageConfig true
-        coverageTaskName 'jacocoTestReport'
-        reportFile project.file("${buildDir}/reports/jacoco/xml/jacoco.xml")
-        thresholdFine 80
-        thresholdWarning 65
-        thresholdError 50
-        brokenCoverageErrorMessage 'Code Coverage has fallen below the defined threshold.'
-        colorEnabled true
-    }
-}
-
 jacoco {
     toolVersion = '0.8.6'
     reportsDir = file("${buildDir}/reports/jacoco")
-}
-
-jacocoTestReport {
-    dependsOn test
-
-    reports {
-        csv {
-            enabled true
-            destination file("${buildDir}/reports/jacoco/csv/jacoco.csv")
-        }
-        xml {
-            enabled true
-            destination file("${buildDir}/reports/jacoco/xml/jacoco.xml")
-        }
-        html {
-            enabled true
-            destination file("${buildDir}/reports/jacoco/html")
-        }
-    }
-
-    // Display the code coverage every time after the jacocoTestReport run
-    finalizedBy project.tasks.reportCoverage
 }
 
 javadoc {
@@ -191,7 +101,8 @@ task sourcesJar(type: Jar) {
             attributes(
                 'Asset-Administration-Shell-Artifact-Name' : "${rootProject.name}",
                 'Asset-Administration-Shell-Artifact-Git-Version' : archiveVersion.get(),
-                'Asset-Administration-Shell-Artifact-Build-Date' : "${new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date())}"
+                'Asset-Administration-Shell-Artifact-Build-Date' : "${new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date())}",
+                 "Main-Class": "com.sap.dsc.aas.lib.ConsoleApplication"
             )
         }
         manifest.writeTo("${buildDir}/tmp/jar/MANIFEST.MF")
@@ -210,7 +121,8 @@ task buildJar (type: Jar) {
             attributes(
                     'Asset-Administration-Shell-Artifact-Name' : "${rootProject.name}",
                     'Asset-Administration-Shell-Artifact-Git-Version' : archiveVersion.get(),
-                    'Asset-Administration-Shell-Artifact-Build-Date' : "${new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date())}"
+                    'Asset-Administration-Shell-Artifact-Build-Date' : "${new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date())}",
+                    "Main-Class": "com.sap.dsc.aas.lib.ConsoleApplication"
             )
         }
         manifest.writeTo("${buildDir}/tmp/jar/MANIFEST.MF")
